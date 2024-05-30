@@ -6,7 +6,7 @@
 [user]
     name = Roberto Flores           # Nombre del usuario
     email = fq211776@alumno.udb.edu.sv  # Correo electrónico del usuario
-    signingKey =                     # Clave GPG para firmar commits (si se usa)
+    signingKey =  # Clave GPG para firmar commits (si se usa)
 
 ###############################################################################
 # [commit]
@@ -20,7 +20,7 @@
 # Configuración del almacenamiento de credenciales
 ###############################################################################
 [credential]
-    helper = manager-core            # Uso del administrador de credenciales por defecto
+	helper = store
 #   helper = cache --timeout=604800  # Alternativa: cache de credenciales con un tiempo de espera de una semana
 
 ###############################################################################
