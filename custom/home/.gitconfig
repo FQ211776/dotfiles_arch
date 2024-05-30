@@ -1,0 +1,21 @@
+###############################################################################
+[user]
+    name = Roberto Flores
+    email = fq211776@alumno.udb.edu.sv
+###############################################################################
+####push the current branch and set the remote as upstream automatically
+[push]
+	autoSetupRemote = true
+###############################################################################
+[alias]
+####Switch to a branch, creating it if necessary
+	go = checkout -B
+####show status with just the most relevant info
+    s = status -s -b
+####git add everithing
+    a = add .
+####git commit -m
+    cm = commit -m
+####push <any> current branch
+    publish = "!git push origin $(git branch-name)"
+    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"    
