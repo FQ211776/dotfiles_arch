@@ -77,7 +77,7 @@ done
 if [[ $custom_packages == "y" ]]; then
 logo "Installing needed packages.."
 
-dependencias=(geany)
+dependencias=(diff-so-fancy geany hub github-cli peco ) 
 
 is_installed() {
     pacman -Q "$1" &> /dev/null
@@ -171,7 +171,7 @@ done
 
 if [[ $custom_aur == "y" ]]; then
 
-	logo "installing Flutter"
+	logo "installing Flutter, Gitkraken"
 
 # Installing Flutter
 	if command -v flutter >/dev/null 2>&1; then
@@ -181,7 +181,20 @@ if [[ $custom_aur == "y" ]]; then
 		paru -S flutter --skipreview --noconfirm
 	fi
 
+
+
+# Installing gitkraken
+	if command -v gitkraken >/dev/null 2>&1; then
+		printf "\n%s%sgitkraken is already installed%s\n" "${BLD}" "${CGR}" "${CNC}"
+	else
+		printf "\n%s%sInstalling gitkraken, this will be fast!%s\n" "${BLD}" "${CBL}" "${CNC}"
+		paru -S gitkraken --skipreview --noconfirm
+	fi
+
 fi
+
+
+
 
 sleep 2
 
