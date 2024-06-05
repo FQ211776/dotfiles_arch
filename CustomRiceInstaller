@@ -77,7 +77,7 @@ done
 if [[ $custom_packages == "y" ]]; then
 logo "Installing needed packages.."
 
-dependencias=(diff-so-fancy geany hub github-cli peco ) 
+dependencias=(diff-so-fancy geany hub github-cli peco wget eza) 
 
 is_installed() {
     pacman -Q "$1" &> /dev/null
@@ -154,7 +154,7 @@ if [[ $custom_dotfiles == "y" ]]; then
 	printf "Copying files to respective directories..\n"
 
 	cp -f "$HOME"/dotfiles2/custom/home/.gitconfig "$HOME"
-	cp -f "$HOME"/dotfiles2/custom/.config/bspwm/bspwmrc "$HOME"/.config/bspwm/bspwmrc
+	cp -f "$HOME"/dotfiles2/custom/config/bspwm/bspwmrc "$HOME"/.config/bspwm/bspwmrc
 	
 	printf "\n\n%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 

@@ -79,7 +79,7 @@
 ###############################################################################
 # Use neovim as git diff and merge tool
 [diff]
-    tool = meld              # Usa 'meld' como herramienta de diferencias
+	tool = meld
 # [diff]
 #   tool = nvimdiff          # Alternativa: usa 'nvimdiff' (comentado)
 [difftool]
@@ -357,6 +357,9 @@
     ############################ #danger danger
     # Reset to the last commit, discarding all changes
     rh = reset --hard
+    
+    # make your working directory look exactly the same as it was after the previous commit.
+    rh2 = reset --hard HEAD~1
 	
 	# Fast-forward all local branches to match the latest state on the remote
     sync = "!hub sync"
@@ -366,3 +369,8 @@
 	
 	# Fusiona la rama master con la rama actual, creando un commit de fusión incluso si no es necesario debido a que los cambios en master son directamente aplicables.
 	merge-master = !git merge --no-ff master
+	
+	# busca un texto especifico en un archivo o en un mensaje de un commit 
+	findcommit = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+	findmessage = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
