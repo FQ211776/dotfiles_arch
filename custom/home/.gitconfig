@@ -251,9 +251,6 @@
     # Pull the current branch
     pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 
-    # Fast-forward all local branches to match the latest state on the remote
-    sync = "!hub sync"
-
     ############################ Logs
     # View abbreviated SHA, description, and history graph of the latest 50 commits
     l = log --pretty=oneline -n 50 --graph --abbrev-commit
@@ -360,3 +357,12 @@
     ############################ #danger danger
     # Reset to the last commit, discarding all changes
     rh = reset --hard
+	
+	# Fast-forward all local branches to match the latest state on the remote
+    sync = "!hub sync"
+    
+    # Cancela una fusión en curso y revierte los cambios realizados durante la fusión
+    cancel-merge = !git merge --abort
+	
+	# Fusiona la rama master con la rama actual, creando un commit de fusión incluso si no es necesario debido a que los cambios en master son directamente aplicables.
+	merge-master = !git merge --no-ff master
