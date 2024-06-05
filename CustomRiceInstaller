@@ -134,6 +134,16 @@ if [[ $custom_dotfiles == "y" ]]; then
 	else
 		printf "%s%sThe file .gitconfig does not exist, %sno backup needed%s\n" "${BLD}" "${CGR}" "${CYE}" "${CNC}"
 	fi
+	
+	if [ -f ~/.config/bspwm/bspwmrc ]; then
+		if mv ~/.config/bspwm/bspwmrc "$backup_folder"/.bspwmrc_"$date" 2>> RiceError.log; then
+			printf "%s%sbspwmrc file backed up successfully at %s%s/.gitconfig_%s%s\n" "${BLD}" "${CGR}" "${CBL}" "$backup_folder" "${date}" "${CNC}"
+		else
+			printf "%s%sFailed to backup bspwmrc file. See %sRiceError.log%s\n" "${BLD}" "${CRE}" "${CBL}" "${CNC}"
+		fi
+	else
+		printf "%s%sThe file bspwmrc does not exist, %sno backup needed%s\n" "${BLD}" "${CGR}" "${CYE}" "${CNC}"
+	fi
 
 	printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 	sleep 5
@@ -143,8 +153,9 @@ if [[ $custom_dotfiles == "y" ]]; then
 	logo "Installing dotfiles.."
 	printf "Copying files to respective directories..\n"
 
-	cp -f "$HOME"/dotfiles/custom/home/.gitconfig "$HOME"
-
+	cp -f "$HOME"/dotfiles2/custom/home/.gitconfig "$HOME"
+	cp -f "$HOME"/dotfiles2/custom/.config/bspwm/bspwmrc "$HOME"/.config/bspwm/bspwmrc
+	
 	printf "\n\n%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 
 
